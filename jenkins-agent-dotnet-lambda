@@ -4,7 +4,11 @@ FROM mcr.microsoft.com/dotnet/sdk:7.0 AS test
 
 FROM jenkins/inbound-agent:4.7-1-alpine
 
-RUN adduser --uid 1001 jenkins && mkdir /home/jenkins && chown jenkins:jenkins /home/jenkins
+RUN sudo apt-get -y install coreutils
+
+RUN sudo adduser --uid 1001 jenkins && mkdir /home/jenkins && chown jenkins:jenkins /home/jenkins
+
+#RUN addgroup -S jenkinsgroup && adduser -S jenkins -G jenkinsgroup
 
 # Install Java
 RUN apt-get update
