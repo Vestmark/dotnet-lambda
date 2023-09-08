@@ -6,7 +6,7 @@ FROM mcr.microsoft.com/dotnet/sdk:7.0 AS test
 
 FROM alpine:latest
 
-RUN useradd --uid 1001 jenkins && mkdir /home/jenkins && chown jenkins:jenkins /home/jenkins
+RUN adduser --uid 1001 jenkins && mkdir /home/jenkins && chown jenkins:jenkins /home/jenkins
 
 # Install Java
 RUN apt-get update
