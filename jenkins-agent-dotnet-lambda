@@ -4,10 +4,10 @@ FROM mcr.microsoft.com/dotnet/sdk:7.0 AS test
 
 FROM jenkins/inbound-agent:4.7-1-alpine
 
-RUN apk add doas
-RUN adduser jenkins -G wheel
-RUN echo 'jenkins:password' | chpasswd
-RUN echo 'permit :wheel as root' > /etc/doas.d/doas.conf
+RUN apk add doas; \
+    adduser jenkins -G wheel; \
+    echo 'jenkins:password' | chpasswd; \
+    echo 'permit :wheel as root' > /etc/doas.d/doas.conf
 USER jenkins
 
 
