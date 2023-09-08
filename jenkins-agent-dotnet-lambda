@@ -4,12 +4,7 @@ FROM mcr.microsoft.com/dotnet/sdk:7.0 AS test
 
 FROM jenkins/inbound-agent:4.7-1-alpine
 
-#RUN useradd --uid 1001 jenkins && mkdir /home/jenkins && chown jenkins:jenkins /home/jenkins
-
-RUN addgroup -S jenkinsgroup && adduser -S jenkins -G jenkinsgroup
-
-# Tell docker that all future commands should run as the appuser user
-USER appuser
+RUN sudo useradd --uid 1001 jenkins && mkdir /home/jenkins && chown jenkins:jenkins /home/jenkins
 
 # Install Java
 RUN apt-get update
