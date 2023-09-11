@@ -13,6 +13,7 @@ USER root
 #    echo 'permit :wheel as root' > /etc/doas.d/doas.conf
 #USER jenkins
 
+RUN apk add bash icu-libs krb5-libs libgcc libintl libssl1.1 libstdc++ zlib wget
 RUN apk update
 
 RUN mkdir -p /usr/share/dotnet \
