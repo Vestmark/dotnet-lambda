@@ -2,8 +2,8 @@
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS test
 
-#FROM jenkins/inbound-agent:4.7-1-alpine
-FROM jenkins/jnlp-slave:alpine
+FROM jenkins/inbound-agent:4.7-1-alpine
+#FROM jenkins/jnlp-slave:alpine
 
 USER root
 
