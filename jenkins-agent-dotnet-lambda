@@ -6,13 +6,13 @@ FROM jenkins/inbound-agent:4.7-1-alpine
 
 USER root
 
-RUN apk add doas; \
-    adduser jenkins -G wheel; \
-    echo 'jenkins:password' | chpasswd; \
-    echo 'permit :wheel as root' > /etc/doas.d/doas.conf
-USER jenkins
+#RUN apk add doas; \
+#    adduser jenkins -G wheel; \
+#    echo 'jenkins:password' | chpasswd; \
+#    echo 'permit :wheel as root' > /etc/doas.d/doas.conf
+#USER jenkins
 
-
+RUN apk add doas
 RUN apk add coreutils
 
 #RUN adduser --uid 1001 jenkins && mkdir /home/jenkins && chown jenkins:jenkins /home/jenkins
