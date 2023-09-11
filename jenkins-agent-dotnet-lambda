@@ -2,7 +2,8 @@
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS test
 
-FROM jenkins/inbound-agent:4.7-1-alpine
+#FROM jenkins/inbound-agent:4.7-1-alpine
+FROM jenkins/jnlp-slave:alpine
 
 USER root
 
@@ -13,7 +14,13 @@ USER root
 #USER jenkins
 
 RUN apk update
-RUN apk add dotnet7-sdk
+
+RUN mkdir -p /usr/share/dotnet \
+    && ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet 
+RUN wget https://dot.net/v1/dotnet-install.sh
+RUN chmod +x dotnet-install.sh
+RUN ./dotnet-install.sh -c 7.0 --install-dir /usr/share/dotnet
+
 RUN apk add doas
 RUN apk add coreutils
 
