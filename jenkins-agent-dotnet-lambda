@@ -12,6 +12,7 @@ USER root
 #    echo 'permit :wheel as root' > /etc/doas.d/doas.conf
 #USER jenkins
 
+RUN apk add dotnet7-sdk
 RUN apk add doas
 RUN apk add coreutils
 
