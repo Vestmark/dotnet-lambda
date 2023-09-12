@@ -49,7 +49,7 @@ USER jenkins
 
 WORKDIR /src
 
-RUN ls -la 
+RUN ls -la ./dotnet
 
 COPY --chown=jenkins:jenkins ./scripts /scripts
 
