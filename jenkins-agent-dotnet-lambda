@@ -57,7 +57,7 @@ RUN chmod +x dotnet-install.sh
 RUN ./dotnet-install.sh -c 7.0 --install-dir /usr/share/dotnet
 
 
-RUN chown jenkins:jenkins /.dotnet
+RUN chown jenkins:jenkins ~/.dotnet
 
 WORKDIR /src
 
