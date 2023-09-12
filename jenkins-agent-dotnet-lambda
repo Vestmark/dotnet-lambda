@@ -40,10 +40,10 @@ RUN apk add curl sudo
 # Create symlink to allow the Java environment varible to point to the locally installed path
 RUN ln -s /usr/lib/jvm/java-1.11.0-openjdk-amd64 /usr/lib/jvm/openjdk-11.0.16_8
 
-
-RUN chown jenkins:jenkins /usr/share/dotnet/dotnet
-RUN chown jenkins:jenkins /usr/bin/dotnet 
 RUN chown jenkins:jenkins /usr/share/dotnet
+RUN chown jenkins:jenkins /usr/bin/dotnet 
+RUN chown jenkins:jenkins /usr/share/dotnet/dotnet
+
 
 USER jenkins
 
