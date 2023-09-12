@@ -16,16 +16,12 @@ USER root
 RUN apk add bash icu-libs krb5-libs libgcc libintl libssl1.1 libstdc++ zlib wget
 RUN apk update
 
-RUN mkdir -p /usr/share/dotnet \
-    && ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet 
-RUN wget https://dot.net/v1/dotnet-install.sh
-RUN chmod +x dotnet-install.sh
-RUN ./dotnet-install.sh -c 7.0 --install-dir /usr/share/dotnet
+
 
 RUN apk add doas
 RUN apk add coreutils
 
-RUN adduser --uid 1001 jenkins && mkdir /home/jenkins && chown jenkins:jenkins /home/jenkins
+#RUN adduser --uid 1001 jenkins && mkdir /home/jenkins && chown jenkins:jenkins /home/jenkins
 
 #RUN mkdir /home/jenkins && chown jenkins:jenkins /home/jenkins
 
@@ -46,6 +42,13 @@ USER jenkins
 WORKDIR /src
 
 COPY --chown=jenkins:jenkins ./scripts /scripts
+
+#Install dotnet runtime
+RUN mkdir -p /usr/share/dotnet \
+    && ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet 
+RUN wget https://dot.net/v1/dotnet-install.sh
+RUN chmod +x dotnet-install.sh
+RUN ./dotnet-install.sh -c 7.0 --install-dir /usr/share/dotnet
 
 # Install dotnet tools
 RUN dotnet tool install --global dotnet-sonarscanner
