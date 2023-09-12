@@ -38,6 +38,7 @@ RUN apk add coreutils
 
 RUN apk add openjdk11
 RUN apk add zip
+RUN apk add curl sudo
 # Create symlink to allow the Java environment varible to point to the locally installed path
 RUN ln -s /usr/lib/jvm/java-1.11.0-openjdk-amd64 /usr/lib/jvm/openjdk-11.0.16_8
 
