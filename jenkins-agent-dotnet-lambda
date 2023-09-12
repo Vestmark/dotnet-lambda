@@ -49,7 +49,9 @@ USER jenkins
 
 WORKDIR /src
 
-RUN ls -la ./dotnet
+RUN ls -la /usr/share/dotnet/dotnet
+RUN ls -la /usr/bin/dotnet 
+RUN ls -la /usr/share/dotnet 
 
 COPY --chown=jenkins:jenkins ./scripts /scripts
 
