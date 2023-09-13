@@ -25,7 +25,7 @@ RUN apk add coreutils
 
 #RUN adduser --uid 1001 jenkins && mkdir /home/jenkins && chown jenkins:jenkins /home/jenkins
 
-RUN adduser -u 1001 jenkins
+RUN addgroup -g 1001 jenkins && adduser -G jenkins -u 1001 jenkins -D
 
 #RUN mkdir /home/jenkins && chown jenkins:jenkins /home/jenkins
 
