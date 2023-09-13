@@ -5,6 +5,8 @@ FROM mcr.microsoft.com/dotnet/sdk:7.0 AS test
 FROM jenkins/inbound-agent:4.7-1-alpine
 #FROM jenkins/jnlp-slave:alpine
 
+RUN addgroup -g 1001 jenkins && adduser -G jenkins -u 1001 jenkins -D
+
 USER root
 
 #RUN apk add doas; \
@@ -25,7 +27,7 @@ RUN apk add coreutils
 
 #RUN adduser --uid 1001 jenkins && mkdir /home/jenkins && chown jenkins:jenkins /home/jenkins
 
-RUN addgroup -g 1001 jenkins && adduser -G jenkins -u 1001 jenkins -D
+
 
 #RUN mkdir /home/jenkins && chown jenkins:jenkins /home/jenkins
 
