@@ -26,7 +26,7 @@ RUN apk add shadow
 
 #RUN adduser --uid 1001 jenkins && mkdir /home/jenkins && chown jenkins:jenkins /home/jenkins
 
-RUN adduser --uid 1001 jenkins 
+RUN useradd --uid 1001 jenkins 
 
 #RUN addgroup -g 1001 jenkins && adduser -G jenkins -u 1001 jenkins -D
 
