@@ -16,8 +16,8 @@ USER root
 #RUN apk add bash icu-libs krb5-libs libgcc libintl libssl1.1 libstdc++ zlib wget
 #RUN apk update
 
-RUN mkdir -p /usr/share/dotnet \
-    && ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet 
+RUN mkdir -p /usr/share/dotnet 
+#&& ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet 
 RUN useradd --uid 1001 jenkins && mkdir /home/jenkins && chown jenkins:jenkins /home/jenkins
 
 #RUN apk add doas
