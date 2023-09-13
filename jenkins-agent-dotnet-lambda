@@ -44,8 +44,8 @@ RUN apt-get install -y zip
 RUN ln -s /usr/lib/jvm/java-1.11.0-openjdk-amd64 /usr/lib/jvm/openjdk-11.0.16_8
 
 
-RUN mkdir -p /usr/share/dotnet
-RUN mkdir -p /usr/share/dotnet/dotnet
+#RUN mkdir -p /usr/share/dotnet
+#RUN mkdir -p /usr/share/dotnet/dotnet
 
 
 RUN chown jenkins:jenkins /usr/share/dotnet
