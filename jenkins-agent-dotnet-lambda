@@ -2,7 +2,7 @@
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS test
 
-FROM jenkins/inbound-agent:4.7-1-alpine
+#FROM jenkins/inbound-agent:4.7-1-alpine
 #FROM jenkins/jnlp-slave:alpine
 
 USER root
@@ -13,16 +13,16 @@ USER root
 #    echo 'permit :wheel as root' > /etc/doas.d/doas.conf
 #USER jenkins
 
-RUN apk add bash icu-libs krb5-libs libgcc libintl libssl1.1 libstdc++ zlib wget
-RUN apk update
+#RUN apk add bash icu-libs krb5-libs libgcc libintl libssl1.1 libstdc++ zlib wget
+#RUN apk update
 
 RUN mkdir -p /usr/share/dotnet \
     && ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet 
 
 
-RUN apk add doas
-RUN apk add coreutils
-RUN apk add shadow
+#RUN apk add doas
+#RUN apk add coreutils
+#RUN apk add shadow
 
 #RUN adduser --uid 1001 jenkins && mkdir /home/jenkins && chown jenkins:jenkins /home/jenkins
 
@@ -33,13 +33,13 @@ RUN apk add shadow
 #RUN addgroup -S jenkinsgroup && adduser -S jenkins -G jenkinsgroup
 
 # Install Java
-#RUN apt-get update
-#RUN apt-get install -y openjdk-11-jre-headless
-#RUN apt-get install -y zip
+RUN apt-get update
+RUN apt-get install -y openjdk-11-jre-headless
+RUN apt-get install -y zip
 
-RUN apk add openjdk11
-RUN apk add zip
-RUN apk add curl sudo
+#RUN apk add openjdk11
+#RUN apk add zip
+#RUN apk add curl sudo
 # Create symlink to allow the Java environment varible to point to the locally installed path
 RUN ln -s /usr/lib/jvm/java-1.11.0-openjdk-amd64 /usr/lib/jvm/openjdk-11.0.16_8
 
